@@ -1,0 +1,82 @@
+<div class="row pl-1">
+    <div class="col-12 col-sm-12 p-0">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header bg-light pt-1">
+                <div class="form-row">
+                    <div class="col-12 col-sm-6  text-left">
+                        <h3 class="content-header mt-1">Add new product</h3>
+                        <p class="content-sub-header"></p>
+                    </div>
+                    <div class="col-12 col-sm-6 text-right pt-1">
+                        <div class="btn-group btn-group-justified">
+                            <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+                                (click)="onSave()">Save</button>
+                            <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1"
+                                (click)="onCancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="row pl-1 table-ag-grid pt-1">
+    <div class="col-12 col-sm-12 p-0">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header pt-1">
+                <form class="form-group">
+                    <div class="row pt-2">
+                        <div class="col-12 col-md-4">
+                            <label for=""> Product Name</label>
+                            <!-- <input name="name" [(ngModel)]="product.name" type="text" class="form-control"
+                                placeholder="Product Name"> -->
+                                <input name="name" [(ngModel)]="product.name" type="text" class="form-control"
+                                placeholder="Barcode">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for=""> Barcode</label>
+                            <input name="barcode" [(ngModel)]="product.barcode" type="text" class="form-control"
+                                placeholder="Barcode">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="">Category</label>
+                            <input name="category" [(ngModel)]="product.category" type="text" class="form-control"
+                                placeholder="Category">
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-12 col-md-4">
+                            <label for=""> Sale Price </label>
+                            <input name="sale_price" [(ngModel)]="product.sale_price" type="text" class="form-control"
+                                placeholder="Mobile">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for=""> Regular Price </label>
+                            <input name="reqular_price" [(ngModel)]="product.reqular_price" type="text"
+                                class="form-control" placeholder="Sale Price">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for=""> Source </label>
+                            <input name="source" [(ngModel)]="product.source" type="text" class="form-control"
+                                placeholder="Source">
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-12 col-md-4">
+                            <label for=""> Date </label>
+                            <input name="created_at " [(ngModel)]="product.created_at " type="date" class="form-control"
+                                placeholder=" Date">
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <label for=""> Description</label>
+                            <textarea name="description" [(ngModel)]="product.description" type="text"
+                                class="form-control" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

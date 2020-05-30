@@ -1,0 +1,186 @@
+<div class="content">
+  <!--  -->
+  <div class="row">
+    <!--  -->
+    <div class="col-xl-3 col-lg-6 col-md-4">
+      <div class="card" style="height: 102.625px;">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{dataDashboard.open_lead}}</h3>
+                <span>Open Lead</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="icon-user success font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="col-xl-3 col-lg-6 col-md-4">
+      <div class="card" style="height: 102.625px;">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{dataDashboard.all_opportunity}}</h3>
+                <span>All Opportunity</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="fas fa-hands-helping success font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="col-xl-3 col-lg-6 col-md-4">
+      <div class="card" style="height: 102.625px;">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{dataDashboard.closed_won}} </h3>
+                <span>Closed Won</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="fas fa-chart-line success font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="col-xl-3 col-lg-6 col-md-4">
+      <div class="card" style="height: 102.625px;">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">{{dataDashboard.closed_lose}}</h3>
+                <span>Closed Lose</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="icon-user success font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+  <!--  -->
+
+
+
+
+
+
+  <!--  -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-center">
+            <div class="card-header ">
+              <h2 class="card-title">Stage Opportunity</h2>
+              <h5 class="card-category">monthly of performance</h5>
+            </div>
+          </div>
+          <div class="col-12 col-sm-3">
+            <div class="card-header">
+              
+            </div>
+          </div>
+        </div>
+        <div class="card-body ">
+          <div class="col-md-12">
+            <canvas 
+              baseChart="dataChart" 
+              [(datasets)]="barOpportunityStatus" 
+              [(labels)]="barChartLabels" 
+              [(legend)]="barChartLegend"
+              [(options)]="barChartOptions" 
+              [(chartType)]="barChartType">
+            </canvas>
+          </div>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-history"></i> Updated 3 minutes ago
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card ">
+        <div class="card-header ">
+          <h5 class="card-title">Query of CRM</h5>
+          <p class="card-category">Total and Result</p>
+        </div>
+        <div class="card-body ">
+          <ul style="list-style: none;">
+            <li class="mt-2"> <i class="fa fa-circle text-primary"></i>&nbsp; Open Lead = {{dataDashboard?.open_lead}} </li>
+            <li class="mt-2"> <i class="fa fa-circle text-warning"></i>&nbsp; Closed Won= {{dataDashboard?.closed_won}}</li>
+            <li class="mt-2"><i class="fa fa-circle text-danger"></i>&nbsp; Closed Lose = {{dataDashboard?.closed_lose}}</li>
+            <li class="mt-2"> <i class="fa fa-circle text-info"></i>&nbsp; Total Opportunity = {{dataDashboard?.all_opportunity}} </li>
+            <!-- <li class="mt-2"> <i class="fa fa-circle text-success"></i>&nbsp; Closed won = </li>
+            <li class="mt-2"> <i class="fa fa-circle text-secondary"></i>&nbsp; Closed lose = </li> -->
+            <li class="mt-2"> <i class="fa fa-circle text-gray"></i>&nbsp; Total amount = {{dataDashboard?.total_opportunity_amount}}</li>
+
+
+          </ul>
+        </div>
+        <div class="card-footer ">
+          <div class="legend">
+
+
+          </div>
+          <!-- <hr> -->
+          <div class="stats">
+            <i class="fa fa-calendar mt-2"></i>
+            Number of Infomation <br> Customer Relationship Management <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-title">Opportunity</h5>
+          <p class="card-category">Line Chart with Points</p>
+        </div>
+        <div class="card-body">
+          <div class="container">
+
+            <div class="col-md-12">
+              <canvas baseChart [data]="dougnutChartData" [chartType]="dougnutChartType" [labels]="dougnutChartLabels">
+
+              </canvas>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <div class="chart-legend">
+          </div>
+          <!-- <hr /> -->
+          <div class="card-stats">
+            <i class="fa fa-check "></i> Data information certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

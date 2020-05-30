@@ -1,0 +1,26 @@
+{
+    "opp": [
+        {
+            "id":1,
+            "topic":"CRM",
+            "barcode":"001",
+            "category":"Web App",
+            "amount":"$00.00",
+            "stage":"Incomplete",
+            "source":"redfox",
+            "closeDate":"2020-01-07",
+            "description":"Testing"
+        },
+        {
+            "id":2,
+            "topic":"CRM",
+            "barcode":"001",
+            "category":"Web App",
+            "amount":"$00.00",
+            "stage":"Incomplete",
+            "source":"redfox",
+            "closeDate":"2020-01-07",
+            "description":"Testing"
+        }
+    ]
+}

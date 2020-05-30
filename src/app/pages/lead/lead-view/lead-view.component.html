@@ -1,0 +1,197 @@
+<!-- Header -->
+<div class="row pl-1">
+  <div class="col-md-12  p-0 bg-primary">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-md-6 text-left">
+            <h3 class="content-header mt-1">Page detail of lead</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-md-6  text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onConvert()">Convert</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Here is importance  -->
+<div class="row pl-1">
+  <div class="col-md-12  p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1 bg-light">
+        <div class="form-row">
+          <div class="col-md-3 text-left">
+            <h3 class="content-header mt-1 text-center">Company</h3>
+            <p class="content-sub-header text-center">{{dataLeads.company}}</p>
+          </div>
+          <div class="col-md-3 text-left">
+            <h3 class="content-header mt-1 text-center">Rating</h3>
+            <p class="content-sub-header text-center">{{dataLeads.rating}}</p>
+          </div>
+          <div class="col-md-3 text-left">
+            <h3 class="content-header mt-1 text-center">Status</h3>
+            <p class="content-sub-header text-center">{{dataLeads.status}}</p>
+          </div>
+          <div class="col-md-3 text-left">
+            <h3 class="content-header mt-1 text-center">Date</h3>
+            <!-- <p class="content-sub-header text-center">{{dataLeads.date}}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<!-- style loading ngx spinner -->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<!--  -->
+
+<div class="row pl-1 mt-1 table-ag-grid">
+  <div class="col-md-12  p-0 bg-primary">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="container mt-1">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 bg-light pt-1">
+                <Label> Add information contact </Label>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> First Name</label>
+                <p type="text" class="" placeholder="First name">{{dataLeads.firstname}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Last Name</label>
+                <p type="text" class="" placeholder="Last name">{{dataLeads.lastname}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Gender </label>
+                <p type="text" class="" placeholder="Gender">{{dataLeads.gender}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold">Phone</label>
+                <p type="text" class="" placeholder="Phone">{{dataLeads.phone}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Mobile </label>
+                <p type="text" class="" placeholder="Mobile">{{dataLeads.mobile}}</p>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Email </label>
+                <p type="text" class="" placeholder="Email">{{dataLeads.email}}</p>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Date of Birth </label>
+                <p type="text" class="" placeholder="Date of Birth">{{dataLeads.dob}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Pleace of Birth </label>
+                <p type="text" class="" placeholder="Pleace of Birth">{{dataLeads.pob}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Position </label>
+                <p type="text" class="" placeholder="Position">{{dataLeads.position}}</p>
+              </div>
+              <div class="col-md-9">
+                <label for="" class="font-weight-bold"> Address </label>
+                <p type="text" class="" placeholder="Address">{{dataLeads.address}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 bg-light pt-1">
+                <Label> Add information company </Label>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Company Name </label>
+                <p type="text" class="" placeholder="Company Name">{{dataLeads.company}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Industry </label>
+                <p type="text" class="" placeholder="Industry">{{dataLeads.industry}}</p>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Website </label>
+                <p type="text" class="" placeholder="Website">{{dataLeads.website}}</p>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Phone Company </label>
+                <p type="text" class="" placeholder="Phone Company">{{dataLeads.phone_company}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Email </label>
+                <p type="text" class="" placeholder="Email">{{dataLeads.email_company}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Reason </label>
+                <p type="text" class="" placeholder="Reason">{{dataLeads.reason}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Feedback </label>
+                <p type="text" class="" placeholder="Feedback">{{dataLeads.feedback}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Requirement </label>
+                <p type="text" class="" placeholder="Requirement">{{dataLeads.requirement}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Topic </label>
+                <p type="text" class="" placeholder="Topic">{{dataLeads.topic}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Owner </label>
+                <p type="text" class="" placeholder="Owner">{{dataLeads.owner}}</p>
+              </div>
+              <div class=" col-md-6">
+                <label for="" class="font-weight-bold"> Address Company </label>
+                <p type="text" class="" placeholder="Address Company">{{dataLeads.address_company}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 bg-light pt-1">
+                <Label> Add information status </Label>
+              </div>
+            </div>
+            <div class="row">
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Rating </label>
+                <p type="text" class="" placeholder="Rating">{{dataLeads.rating}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Stage </label>
+                <p type="text" class="" placeholder="Stage">{{dataLeads.stage}}</p>
+              </div>
+              <div class=" col-md-3">
+                <label for="" class="font-weight-bold"> Status </label>
+                <p type="text" class="" placeholder="Status">{{dataLeads.status}}</p>
+              </div>
+              <div class="col-md-3">
+                <label for="" class="font-weight-bold"> Date </label>
+                <p type="text" class="" placeholder="Date">{{dataLeads.date}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Here is import detail -->
+</div>

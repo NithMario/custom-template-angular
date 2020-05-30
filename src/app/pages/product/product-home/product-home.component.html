@@ -1,0 +1,220 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Home of Product</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onAdd()">Add</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Searching opportunity -->
+
+<!-- End of search -->
+<!--  -->
+
+<!--  -->
+<div class="row pl-1 pt-1 table-ag-grid">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="form-row ">
+          <div class="col-12 col-sm-5 pl-1 pt-0">
+            <p class="text-secondary mb-0 mt-1 font-small-3">More product</p>
+          </div>
+          <div class="col-12 col-sm-7 pt-0 d-flex">
+            <div class="input-group input-group-sm mb-0">
+              <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                [(ngModel)]="searchText" autocomplete="off" />
+              <div class="input-group-append">
+                <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                  <i class="ft-search"></i>
+                </button>
+              </div>
+            </div>
+            <button class="btn input-group-text btn-sm px-1">
+              <i class="ft ft-filter text-dark"></i>
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-responsive-md text-left margin-3 border-bottom">
+            <thead>
+              <tr class="bg-light text-dark">
+                <th class="py-1" scope="col"><small>Product Name</small></th>
+                <th class="py-1" scope="col"><small>Barcode</small></th>
+                <th class="py-1" scope="col"><small>Category</small></th>
+                <th class="py-1" scope="col"><small>Sale price</small></th>
+                <th class="py-1" scope="col"><small>Regular price</small></th>
+                <th class="py-1" scope="col"><small>Source</small></th>
+                <th class="py-1" scope="col"><small>Date</small></th>
+                <th class="py-1" scope="col"><small>Action</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dataProduct of productArray | filter:searchText">
+                <td class="py-1" scope="col"><small>{{dataProduct.name}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.barcode}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.category}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.sale_price}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.regular_price}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.source}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataProduct.created_at}}</small></td>
+                <td  class="py-1 d-flex flex-wrap text-center" scope="col">
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="onView(view)"
+                    [routerLink]="['/product/detailProduct',dataProduct.id]"data-toggle="tooltip" title="Detail Product">
+                    <i class="ft ft-eye font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="onEdit(edit,dataProduct.id)"
+                  data-toggle="tooltip" title="Edit Product">
+                    <i class="ft ft-edit-2 font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-danger"
+                    (click)="onDelete(dataProduct.id)"data-toggle="tooltip" title="Delete Product">
+                    <i class="fas fa-trash-alt font-small-1"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- view of products -->
+<ng-template #view>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Detail of product</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <label for=""> Product Name</label>
+          <p type="text" class="form-control" placeholder="Product Name">Product Name</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for=""> Barcode</label>
+          <p type="text" class="form-control" placeholder="Barcode">Barcode</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for="">Category</label>
+          <p type="text" class="form-control" placeholder="Category">Category</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for=""> Sale Price </label>
+          <p type="text" class="form-control" placeholder="Sale Price ">Sale Price </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <label for=""> Regular Price </label>
+          <p type="text" class="form-control" placeholder="Regular Price">Regular Price</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for=""> Source </label>
+          <p type="text" class="form-control" placeholder="Source">Source</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for=""> Date </label>
+          <p type="text" class="form-control" placeholder=" Date">Date</p>
+        </div>
+        <div class="col-12 col-md-3">
+          <label for=""> Description</label>
+          <p type="text" class="form-control" placeholder="Description">Description</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="col-12 col-sm-12 text-right pt-1">
+        <div class="btn-group btn-group-justified">
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info" (click)="onSave()">Save</button>
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info" (click)="modalRef.hide()">Cancel</button>
+        </div>
+      </div> -->
+</ng-template>
+<!-- end popup view of products -->
+
+<!-- popup edit of products -->
+<ng-template #edit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit of product</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Product Name</label>
+          <input name="name" [(ngModel)]="eProduct.name" type="text" class="form-control" placeholder="Product Name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Barcode</label>
+          <input name="barcode" [(ngModel)]="eProduct.barcode" type="text" class="form-control" placeholder="Barcode">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="">Category</label>
+          <input name="category" [(ngModel)]="eProduct.category" type="text" class="form-control"
+            placeholder="Category">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Sale Price </label>
+          <input name="sale_price" [(ngModel)]="eProduct.sale_price" type="text" class="form-control"
+            placeholder="Mobile">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Regular Price </label>
+          <input name="regular_price" [(ngModel)]="eProduct.regular_price" type="text" class="form-control"
+            placeholder="Sale Price">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Source </label>
+          <input name="source" [(ngModel)]="eProduct.source" type="text" class="form-control" placeholder="Source">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Date </label>
+          <input name="updated_at" [(ngModel)]="eProduct.created_at" type="date" class="form-control"
+            placeholder=" Date">
+        </div>
+        <div class="col-12 col-md-8">
+          <label for=""> Description</label>
+          <textarea name="description" [(ngModel)]="eProduct.description" type="text" class="form-control"
+            placeholder="Description"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-sm-12 text-right pt-1">
+    <div class="btn-group btn-group-justified">
+      <button class="btn btn-primary btn-raised btn-sm btn-sm px-4"
+        (click)="onSave()">Save</button>
+        <button class="btn btn-primary btn-raised btn-sm btn-sm px-4 ml-1"
+        (click)="onSaveNew()">Save&New</button>
+      <button class="btn btn-danger btn-raised btn-sm btn-sm px-4 ml-1"
+        (click)="modalRef.hide()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+<!-- end popup edit of products -->

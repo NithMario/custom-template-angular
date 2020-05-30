@@ -1,0 +1,28 @@
+<!-- <section id="smart-table">
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header"></div>
+        <div class="card-content">
+          <div class="card-body">
+            <div class="table-responsive height-600">
+              <ng2-smart-table [settings]="headers" [source]="datas"></ng2-smart-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+ <!--<div class="action">
+  <button (click)="onRemoveSelected()">Remove Selected</button> 
+  <button (click)="clearData()">Clear Data</button>
+</div>-->
+<section class="table-ag-grid mt-2 ">
+  <div class="table">
+    <ag-grid-angular #agGrid class="ag-theme-balham height-650" [rowData]="rowData"
+      [columnDefs]="columnDefs"  [rowSelection]="rowSelection" [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)" >
+    </ag-grid-angular>
+  </div>
+</section>

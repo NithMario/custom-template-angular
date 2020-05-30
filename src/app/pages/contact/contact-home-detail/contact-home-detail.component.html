@@ -1,0 +1,81 @@
+<div class="row pl-1">
+    <div class="col-12 col-sm-12 p-0">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header bg-light pt-1">
+                <div class="form-row">
+                    <div class="col-12 col-sm-6  text-left">
+                        <h3 class="content-header mt-1">Page detail of Contact</h3>
+                        <p class="content-sub-header"></p>
+                    </div>
+                    <div class="col-12 col-sm-6 text-right pt-1">
+                        <div class="btn-group btn-group-justified">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="row pl-1">
+    <div class="col-12 col-sm-12 p-0 table-ag-grid pt-1">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header pt-1">
+                <div class="form-group">
+                    <div class="row mt-2">
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> First Name</label>
+                            <p type="text" class="" placeholder="First name">{{contacts.firstname}} </p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Last Name</label>
+                            <p type="text" class="" placeholder="Last name">{{contacts.lastname}}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Gender </label>
+                            <p class="" name="gender">
+                                <option value="male" selected="Male">{{contacts.gender}}</option>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold">Phone</label>
+                            <p type="text" class="" placeholder="Phone">{{contacts.phone}}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Mobile </label>
+                            <p type="text" class="" placeholder="Mobile">{{contacts.mobile}}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Email </label>
+                            <p type="text" class="" placeholder="Email">{{contacts.email}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Date of Birth </label>
+                            <p type="text" class="" placeholder="Date of Birth">{{contacts.birthday}}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Pleace of Birth </label>
+                            <p type="text" class="" placeholder="Pleace of Birth">{{contacts.place_of_birth}}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="" class="font-weight-bold"> Position </label>
+                            <p type="text" class="" placeholder="Position">{{contacts.position}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-9">
+                            <label for="" class="font-weight-bold"> Address </label>
+                            <p type="text" class="" placeholder="Address">{{contacts.address}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

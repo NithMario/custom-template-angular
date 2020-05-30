@@ -1,0 +1,90 @@
+  <div class="row pl-1">
+    <div class="col-12 col-sm-12 p-0">
+      <div class="card my-0 shadow-z-1 h-100">
+        <div class="card-header bg-light pt-1">
+          <div class="form-row">
+            <div class="col-12 col-sm-6  text-left">
+              <h3 class="content-header mt-1">Detail of Company</h3>
+              <p class="content-sub-header"></p>
+            </div>
+            <div class="col-12 col-sm-6 text-right pt-1">
+              <div class="btn-group btn-group-justified">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="row pl-1 mt-1 table-ag-grid">
+    <div class="col-12 col-sm-12 p-0">
+      <div class="card my-0 shadow-z-1 h-100">
+        <div class="card-header pt-1">
+          <div  class="form-group">
+            <div class="row mt-2">
+              <div class="col-12 col-md-12 bg-light">
+                <label for="" class="font-weight-bold text-lg-right" class="pt-1">About Company </label>
+              </div>
+            </div>
+            <div class="row pt-1">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Company Name </label>
+                <p type="text" class="" placeholder="Company Name">{{company.name}} </p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Industry </label>
+                <p name="industry" id="industry1" class="">
+                  <option value="name1">{{company.industry}}</option>
+                </p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Website </label>
+                <p type="text" class="" placeholder="Website">{{company.website}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Phone Company </label>
+                <p type="text" class="" placeholder="Phone">{{company.phone}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Email </label>
+                <p type="text" class="" placeholder="Email">{{company.email}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Reason </label>
+                <p type="text" class="" placeholder="Reason">{{company.reason}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Feedback </label>
+                <p type="text" class="" placeholder="Feedback">{{company.feedback}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Topic </label>
+                <p type="text" class="" placeholder="Topic">{{company.topic}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Owner </label>
+                <p type="text" class="" placeholder="Owner">{{company.owner}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold text-lg-right"> Address Company </label>
+                <p type="text" class="" placeholder="Address Company">{{company.address}}</p>
+              </div>
+              <div class="col-12 col-md-8">
+                <label for="" class="font-weight-bold text-lg-right"> Requirement </label>
+                <p type="" class="" placeholder="Requirement">{{company.requirement}}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+{
+    "product": [
+        {
+            "id":1,
+            "product_name":"CRM",
+            "barcode":"001",
+            "category":"Web App",
+            "sale_price":"$00.00",
+            "regularPrice":"10.00",
+            "source":"redfox",
+            "date":"2020-01-07",
+            "description":"Testing"
+        },
+        {
+            "id":2,
+            "product_name":"CRM",
+            "barcode":"002",
+            "category":"Web App",
+            "sale_price":"$00.00",
+            "regularPrice":"$00.00",
+            "source":"redfox",
+            "date":"2020-01-07",
+            "description":"Testing"
+        }
+    ]
+}

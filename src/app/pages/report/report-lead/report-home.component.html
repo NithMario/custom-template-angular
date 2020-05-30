@@ -1,0 +1,172 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header bg-light pt-3">
+              <div class="form-row">
+                <div class="col-12 col-sm-2 pl-1 pt-0">
+                  <p class="text-secondary mb-0 mt-1 font-small-3">Report of lead</p>
+                </div>
+                <div class="col-12 col-sm-1 pt-0 text-sm-center p-1 bd-highlight">
+                  <div class="">
+                    <p class="" for=""> Group by </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg" (change)="gChanged($event)" [(ngModel)]="bSelected">
+                      <option selected [ngValue]="company">Company</option>
+                      <option [ngValue]="contact">Contact</option>
+                      <option [ngValue]="status">Status</option>
+                      <option [ngValue]="data">Date</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-1 pt-0 text-sm-center p-1 bd-highlight">
+                  <div class="">
+                    <label class="" for=""> filter </label>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select name="filter" id="filterBy" class="form-control form-control-lg">
+                      <option value="byMonth">By month</option>
+                      <option value="byYear">By Year</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select name="month" class="form-control">
+                      <option *ngFor="let month of months" [ngValue]="month"> {{month.name}} </option>
+                      <!-- <option value=""> {{today|date:'MMMM '}}  </option>                                           -->
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg">
+                      <option value="" *ngFor='let year of years'> {{year.name}} </option>
+                      <!-- <option value="" > {{today|date:'yyyy'}} </option> -->
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+                    (click)="onOpportunity()">Opportunity Reports</button>
+                </div>
+                <div class="col-md-8 search-report">
+                  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder=" Start searching for leads">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  Table of report -->
+
+
+
+<!--  -->
+<div class="row pl-1 table-ag-grid mt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="table-ag-grid">
+              <div class="flex-sm-fill text-sm-left">
+                <label for="" class=" d-flex">Open</label>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-responsive-md text-left margin-3 border-bottom">
+                  <thead>
+                    <tr class="bg-light text-dark">
+                      <th class="py-1" scope="col"><small>No</small></th>
+                      <th class="py-1" scope="col"><small>Company</small></th>
+                      <th class="py-1" scope="col"><small>Industry</small></th>
+                      <th class="py-1" scope="col"><small>Contact</small></th>
+                      <th class="py-1" scope="col"><small>Phone</small></th>
+                      <th class="py-1" scope="col"><small>Mobile</small></th>
+                      <th class="py-1" scope="col"><small>Requirment</small></th>
+                      <th class="py-1" scope="col"><small>Status</small></th>
+                      <th class="py-1" scope="col"><small>Date</small></th>
+                    </tr>
+                  </thead>
+                  <tbody class="">
+                    <tr *ngFor="let open of leadStatusOpen | filter:searchText">
+                      <td> {{open.no}} </td>
+                      <td>{{open.company}}</td>
+                      <td>{{open.industry}}</td>
+                      <td>{{open.contact}}</td>
+                      <td>{{open.phone}}</td>
+                      <td>{{open.mobile}}</td>
+                      <td>{{open.requirement}}</td>
+                      <td>{{open.status}}</td>
+                      <td>{{open.date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pl-1 table-ag-grid mt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="mt-0 flex-sm-fill text-sm-left">
+              <label for="" class="d-flex">Converted</label>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-responsive-md text-left margin-3 border-bottom">
+                <thead>
+                  <tr class="bg-light text-dark">
+                    <th class="py-1" scope="col"><small>No</small></th>
+                    <th class="py-1" scope="col"><small>Company</small></th>
+                    <th class="py-1" scope="col"><small>Industry</small></th>
+                    <th class="py-1" scope="col"><small>Contact</small></th>
+                    <th class="py-1" scope="col"><small>Phone</small></th>
+                    <th class="py-1" scope="col"><small>Mobile</small></th>
+                    <th class="py-1" scope="col"><small>Requirment</small></th>
+                    <th class="py-1" scope="col"><small>Status</small></th>
+                    <th class="py-1" scope="col"><small>Date</small></th>
+                  </tr>
+                </thead>
+                <tbody class="">
+                  <tr *ngFor="let convert of LeadStatusCoverted | filter:searchText">
+                    <td> {{convert.no}} </td>
+                    <td>{{convert.company}}</td>
+                    <td>{{convert.industry}}</td>
+                    <td>{{convert.contact}}</td>
+                    <td>{{convert.phone}}</td>
+                    <td>{{convert.mobile}}</td>
+                    <td>{{convert.requirement}}</td>
+                    <td>{{convert.status}}</td>
+                    <td>{{convert.date}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

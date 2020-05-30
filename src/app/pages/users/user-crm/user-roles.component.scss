@@ -1,0 +1,21 @@
+// .left{
+//     left: 100px;
+// }
+// .header{
+//     margin: 0px;
+//     background: whitesmoke;
+// }
+// .row-head{
+//     margin-top: 30px;
+//     margin: 0;
+// }
+.table-ag-grid{
+    min-height: calc(100vh - 1.5rem);
+}
+ag-grid-angular{
+    min-height: calc(85vh - 1.5rem);
+}
+::ng-deep .ag-theme-balham .ag-root {
+    border-right: none !important;
+    border-left: none !important;
+}

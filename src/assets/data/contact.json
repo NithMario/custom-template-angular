@@ -1,0 +1,25 @@
+{
+    "contact": [
+        {
+            "name":"Redfox",
+            "gender":"Male",
+            "dob":"12/Jan/1992",
+            "pob":"pv",
+            "phone":"09949858",
+            "mobile":"01275800",
+            "email":"admin@gmail.com",
+            "address":"PP"
+
+        },
+        {
+            "name":"Redfox",
+            "gender":"Male",
+            "dob":"12/Jan/1992",
+            "pob":"pv",
+            "phone":"09949858",
+            "mobile":"01275800",
+            "email":"admin@gmail.com",
+            "address":"PP"
+        }
+    ]
+}

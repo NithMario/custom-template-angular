@@ -1,0 +1,98 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Page detail of Opportunity</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onItem()"
+                [routerLink]="['/opportunity/detailOpp/lineItem',dataOpps.barcode]">Add Item</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1 " (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100 bg-light">
+      <div class="form-row">
+        <div class="col-12 col-sm-3  text-center">
+          <h3 class="content-header mt-1">Topic</h3>
+          <p class="content-sub-header text-center">CRM</p>
+        </div>
+        <div class="col-12 col-sm-3  text-center">
+          <h3 class="content-header mt-1">Amount</h3>
+          <p class="content-sub-header text-center">$00.00</p>
+        </div>
+        <div class="col-12 col-sm-3 text-center">
+          <h3 class="content-header mt-1">Source</h3>
+          <p class="content-sub-header text-center">redfox</p>
+        </div>
+        <div class="col-12 col-sm-3  text-center">
+          <h3 class="content-header mt-1">Date</h3>
+          <p class="content-sub-header text-center">2020-01-07</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="row pl-1 table-ag-grid mt-1 pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="row mt-1">
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Topic </label>
+            <p class="">{{dataOpps.topic}} </p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Barcode </label>
+            <p class="">{{dataOpps.barcode}}</p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Category </label>
+            <p class="">{{dataOpps.category}}</p>
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Amount </label>
+            <p class="">{{dataOpps.amount}}</p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Stage </label>
+            <p class="">{{dataOpps.stage}}</p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Source </label>
+            <p class="">{{dataOpps.source}}</p>
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-12 col-sm-4">
+            <label for="" class="font-weight-bold"> Close Date </label>
+            <p class="">{{dataOpps.closeDate}}</p>
+          </div>
+          <div class="col-12 col-sm-8">
+            <label for="" class="font-weight-bold"> Description </label>
+            <p class="">{{dataOpps.description}}</p>
+          </div>
+        </div>
+
+        <div class="form-row mt-1">
+          <div class="col-12 col-sm-4  text-left">
+            <p class="content-sub-header"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,253 @@
+<!-- Page Company -->
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Home of Contact</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onNew(news)">New</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- btn Search -->
+<!-- Information Contact -->
+
+<!--  -->
+<div class="row pl-1 table-ag-grid pt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-5 pl-1 pt-0">
+            <p class="text-secondary mb-0 mt-1 font-small-3">More Contact</p>
+          </div>
+          <div class="col-12 col-sm-7 pt-0 d-flex">
+            <div class="input-group input-group-sm mb-0">
+              <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                [(ngModel)]="searchText" autocomplete="off" />
+              <div class="input-group-append">
+                <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                  <i class="ft-search"></i>
+                </button>
+              </div>
+            </div>
+            <button class="btn input-group-text btn-sm px-1">
+              <i class="ft ft-filter text-dark"></i>
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-responsive-md text-left margin-3 border-bottom">
+            <thead>
+              <tr class="bg-light text-dark">
+                <th class="py-1" scope="col"><small>Name</small></th>
+                <th class="py-1" scope="col"><small>Gender</small></th>
+                <th class="py-1" scope="col"><small>Birthday</small></th>
+                <th class="py-1" scope="col"><small>PoB</small></th>
+                <th class="py-1" scope="col"><small>Phone</small></th>
+                <th class="py-1" scope="col"><small>Mobile</small></th>
+                <th class="py-1" scope="col"><small>Email</small></th>
+                <th class="py-1" scope="col"><small>Address</small></th>
+                <th class="py-1" scope="col"><small>Action</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dataContact of dataContacts | filter:searchText">
+                <td class="py-1" scope="col"><small>{{dataContact.lastname +" "+ dataContact.firstname}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.gender}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.birthday}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.place_of_birth}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.phone}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.mobile}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.email}}</small></td>
+                <td class="py-1" scope="col"><small>{{dataContact.address}}</small></td>
+                <td  class="py-1 d-flex flex-wrap text-center" scope="col">
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="onView()"
+                    [routerLink]="['/contact/contactDetail',dataContact.id]"data-toggle="tooltip" title="Detail Contact">
+                    <i class="ft ft-eye font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0"
+                    (click)="onEdit(edit,dataContact.id)"data-toggle="tooltip" title="Edit Contact">
+                    <i class="ft ft-edit-2 font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text text-danger p-1 mr-1 rounded-lg mb-0"
+                    (click)="onDelete(dataContact.id)"data-toggle="tooltip" title="Delete Contact">
+                    <i class="fas fa-trash-alt font-small-1"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #news>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Create new contact</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row bg-light mt-2">
+        <div class="col-12 col-md-12">
+          <label for="" class="pt-2">About Contact</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> First Name</label>
+          <input name="firstname" [(ngModel)]="nContact.firstname" type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Last Name</label>
+          <input name="lastname" [(ngModel)]="nContact.lastname" type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Gender </label>
+          <select name="gender" [(ngModel)]="nContact.gender" class="form-control" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="">Phone</label>
+          <input name="phone" [(ngModel)]="nContact.phone" type="text" class="form-control" placeholder="Phone">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Mobile </label>
+          <input name="mobile" [(ngModel)]="nContact.mobile" type="text" class="form-control" placeholder="Mobile">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Email </label>
+          <input name="email " [(ngModel)]="nContact.email" type="email"  #email="ngModel" email class="form-control" placeholder="Email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Date of Birth </label>
+          <input name="birthday" [(ngModel)]="nContact.birthday " type="date" class="form-control" placeholder="Date of Birth">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Pleace of Birth </label>
+          <input name="place_of_birth" [(ngModel)]="nContact.place_of_birth" type="text" class="form-control" placeholder="Pleace of Birth">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Position </label>
+          <input name="position" [(ngModel)]="nContact.position" type="text" class="form-control" placeholder="Position">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label for=""> Address </label>
+          <input name="address" [(ngModel)]="nContact.address" type="text" class="form-control" placeholder="Address">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-sm-12 text-right pt-1">
+    <div class="btn-group btn-group-justified">
+      <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+        (click)="onSave()">Save</button>
+      <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1"
+        (click)="modalRef.hide()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #edit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit contact</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row bg-light mt-2">
+        <div class="col-12 col-md-12">
+          <label for="" class="pt-1">About Contact</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> First Name</label>
+          <input name="firstname" [(ngModel)]="eContact.firstname" type="text" class="form-control"
+            placeholder="First name">
+        </div>
+        <div class="col-12 col-md-4"> 
+          <label for=""> Last Name</label>
+          <input name="lastname" [(ngModel)]="eContact.lastname" type="text" class="form-control"
+            placeholder="Last name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Gender </label>
+          <!-- <input type="text" class="form-control" placeholder="Gender"> -->
+          <select name="gender" [(ngModel)]="eContact.gender" class="form-control" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for="">Phone</label>
+          <input name="phone" [(ngModel)]="eContact.phone" type="text" class="form-control" placeholder="Phone">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Mobile </label>
+          <input name="mobile" [(ngModel)]="eContact.mobile" type="text" class="form-control" placeholder="Mobile">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Email </label>
+          <input name="email " [(ngModel)]="eContact.email" type="email"  #email="ngModel" email class="form-control" placeholder="Email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Date of Birth </label>
+          <input name="birthday " [(ngModel)]="eContact.birthday " type="date" class="form-control" placeholder="Date of Birth">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Place of Birth </label>
+          <input name="place_of_birth" [(ngModel)]="eContact.place_of_birth" type="text" class="form-control" placeholder="Pleace of Birth">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Position </label>
+          <input name="position" [(ngModel)]="eContact.position" type="text" class="form-control"
+            placeholder="Position">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <label for=""> Address </label>
+          <input name="address" [(ngModel)]="eContact.address" type="text" class="form-control" placeholder="Address">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-sm-12 text-right pt-1">
+    <div class="btn-group btn-group-justified">
+      <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+        (click)="eSave()">Save</button>
+      <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1"
+        (click)="modalRef.hide()">Cancel</button>
+    </div>
+  </div>
+</ng-template>

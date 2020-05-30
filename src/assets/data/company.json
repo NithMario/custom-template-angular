@@ -1,0 +1,22 @@
+{
+    "company": [
+        {
+            "id":1,
+            "name":"Redfox",
+            "industry":"Technology",
+            "website":"Web App",
+            "email":"redfox@gmail.com",
+            "phone":"09948",
+            "address":"PP"
+        },
+        {
+            "id":2,
+            "name":"Redfox1",
+            "industry":"Technology",
+            "website":"Web App",
+            "email":"redfox@gmail.com",
+            "phone":"09948",
+            "address":"PP"
+        }
+    ]
+}

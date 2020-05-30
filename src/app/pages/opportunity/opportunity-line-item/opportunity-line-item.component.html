@@ -1,0 +1,336 @@
+<section class="rds__section-header">
+  <div class=" form-row py-2">
+    <div class="col-12 col-sm-12 p-0">
+      <div class="card my-0 shadow-z-1 h-100">
+        <div class="card-header bg-light pt-1">
+          <div class="form-row">
+            <div class="col-12 col-sm-6  text-left">
+              <h3 class="content-header mt-1"> Create Line Items of Opportunity</h3>
+              <p class="content-sub-header"></p>
+            </div>
+            <div class="col-12 col-sm-6 text-right pt-1">
+              <div class="btn-group btn-group-justified">
+                <button class="btn btn-primary btn-raised btn-sm btn-sm px-3 ml-1"
+                  (click)="createItemSave()">Save</button>
+                <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-body py-2">
+            <div class="form-row">
+              <div class="col-12 col-sm-3">
+                <label for=""> Products </label>
+                <input list="products" name="pro" (change)="onChange($event)" [(ngModel)]="product.name" type="text" class="form-control" placeholder="">
+                <datalist id="products">
+                  <option  *ngFor="let pro of products" [value]="pro.name" >{{pro.name}}</option>
+                </datalist>
+              </div>
+              <div class="col-12 col-sm-3">
+                <label for=""> Quantity </label>
+                <input name="qty" [(ngModel)]="product.qty" type="number" class="form-control" placeholder="">
+              </div>
+              <div class="col-12 col-sm-3">
+                <label for=""> Unit Price </label>
+                <input name="sale_price" [(ngModel)]="product.unit_price" type="text" class="form-control"
+                  placeholder="">
+              </div>
+              <div class="col-12 col-sm-3">
+                <label for=""> Discount </label>
+                <input name="discount" [(ngModel)]="product.discount" type="text" class="form-control" placeholder="">
+              </div>
+              <div class="col-12 col-sm-3 pt-1">
+                <label for=""> Amount </label>
+                <input name="amount" [(ngModel)]="product.amount" type="text" class="form-control" placeholder="">
+              </div>
+              <div class="col-12 col-sm-3 pt-1">
+                <label for=""> Stage </label>
+                <select name="stage" required [(ngModel)]="product.stage" class="form-control" name="stage">
+                  <option value="Starting">Starting</option>
+                  <option value="Meeting">Meeting</option>
+                  <option value="Review">Review</option>
+                  <option value="Closed Won">Closed Won</option>
+                  <option value="Closed Lose">Closed Lose</option>
+                </select>
+              </div>
+              <div class="col-12 col-sm-12 pt-1">
+                <label for=""> Sales descriptions </label>
+                <textarea name="description" [(ngModel)]="product.description" type="textarea" class="form-control"
+                  placeholder=""></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rds__section-body">
+  <div class="form-row">
+    <div class="col-12 col-sm-12 p-0">
+      <div class="card shadow-z-1 h-100 rounded-0 mt-0 mb-0">
+        <div class="card-content pt-1">
+          <div class="card-body py-1">
+            <div class="form-row pl-1 pt-1">
+              <div class="col-12 col-sm-12 p-0">
+                <!-- Searching -->
+                <div class="form-row">
+                  <div class="col-12 col-sm-5 pl-1 pt-0">
+                    <p class="text-secondary mb-0 mt-1 font-small-3">Products</p>
+                  </div>
+                  <div class="col-12 col-sm-7 pt-0 d-flex">
+                    <div class="input-group input-group-sm mb-0">
+                      <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                        [(ngModel)]="searchText" autocomplete="off" />
+                      <div class="input-group-append">
+                        <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                          <i class="ft-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <button class="btn input-group-text btn-sm px-1">
+                      <i class="ft ft-filter text-dark"></i>
+                    </button>
+                  </div>
+                </div>
+                <!--  -->
+                <div class="table-responsive">
+                  <table class="table table-responsive-md text-left margin-3 border-bottom">
+                    <thead>
+                      <tr class="bg-light text-dark">
+                        <th class="py-1" scope="col">
+                        <input class="mr-2 py-1" 
+                          type="checkbox" value="" id="multiCheckBox" required>
+                        <small>Product</small></th>
+                        <th class="py-1" scope="col"><small>Barcode</small></th>
+                        <th class="py-1" scope="col"><small>Category</small></th>
+                        <th class="py-1" scope="col"><small>Unit Price</small></th>
+                        <th class="py-1" scope="col"><small>Source</small></th>
+                        <th class="py-1" scope="col"><small>Date</small></th>
+                        <th class="py-1" scope="col"><small>Description</small></th>
+                        <!-- <th class="py-1" scope="col"><small>Option</small></th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="" *ngFor="let product of products | filter:searchText">
+                        <td class="py-1" scope="col"><small>
+                        <input class="mr-2 py-1" 
+                          type="checkbox" value="" id="singleCheckBox" required>
+                        {{product.name}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.barcode}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.category}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.sale_price}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.source}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.created_at}}</small></td>
+                        <td class="py-1" scope="col"><small>{{product.description}}</small></td>
+
+                        <!-- <button class="btn input-group-text  p-1 text-danger mr-1 rounded-lg mb-0" (click)="onRemoved(dataLead.id)">
+                                <i class="ft-trash-2 font-small-1"></i>
+                              </button> -->
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<section class="rds__card-body">
+  <div class="form-row table-ag-grid">
+    <div class="col-12 col-sm-12 p-0">
+      <div class="card my-0 shadow-z-1 h-100 rounded-0">
+        <div class="card-content">
+          <div class="card-body">
+            <form class="form-group">
+              <div class="form-row pb-3">
+                <div class="col-12 col-sm-5 pl-1 pt-0">
+                  <p class="text-secondary mb-0 mt-1 font-small-3">List Items</p>
+                </div>
+                <div class="col-12 col-sm-7 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                      [(ngModel)]="searchText" autocomplete="off" />
+                    <div class="input-group-append">
+                      <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                        <i class="ft-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <button class="btn input-group-text btn-sm px-1">
+                    <i class="ft ft-filter text-dark"></i>
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+          <div class="form-row">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="">
+                  <tr>
+                    <th>Product</th>
+                    <th>Barcode</th>
+                    <th>Category</th>
+                    <th style="width:10%">Unit Price</th>
+                    <th>Source</th>
+                    <th style="width:15%">Date</th>
+                    <th>Description</th>
+                    <th>Option</th>
+                  </tr>
+                </thead>
+
+                <tr *ngFor="let product of products | filter:searchText">
+                  <td class="py-1" scope="col"><small>{{product.name}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.barcode}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.category}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.sale_price}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.source}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.created_at}}</small></td>
+                  <td class="py-1" scope="col"><small>{{product.description}}</small></td>
+                  <td class="py-1" scope="col"><small>
+                    <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+                      (click)="onOrder(product.id,createItem)"
+                      [routerLink]="['/opportunity/detailOpp/lineItem/',product.id]">
+                      Order
+                    </button>
+                  </small></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <ng-template #createItem>
+  <div class="container">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Create Line Items</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="mCreateItem.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Quantity </label>
+        <input name="qty" [(ngModel)]="product.qty" type="number" class="form-control" placeholder="">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Unit Price </label>
+        <input name="unit_price" [(ngModel)]="product.sale_price" type="text" class="form-control" placeholder="">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Discount </label>
+        <input name="discount" [(ngModel)]="product.discount" type="text" class="form-control" placeholder="">
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Amount </label>
+        <input name="amount" [(ngModel)]="(product.qty*product.unit_price)-(product.qty*product.unit_price)*(product.discount)/discount" type="text" class="form-control" placeholder="">
+      </div>
+      <div class="col-12 col-sm-8 ml-0">
+        <label for=""> Sale Description </label>
+        <textarea name="sale_description" [(ngModel)]="product.sale_description" type="text" class="form-control" placeholder=""></textarea>
+      </div>
+    </div>
+    <div class="form-row mt-1">
+      <div class="col-12 col-sm-4  text-left">
+        <p class="content-sub-header"></p>
+      </div>
+      <div class="col-12 col-sm-8 text-right pt-1">
+        <div class="btn-group btn-group-justified">
+          <button class="btn btn-primary btn-raised btn-sm btn-sm px-3 ml-1" (click)="createItemSave()">Save</button>
+          <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="mCreateItem.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> -->

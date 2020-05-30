@@ -1,0 +1,338 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">All of user</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="openModalWithClass(template)">
+                <i class="fa fa-plus-circle" aria-hidden="true">
+                </i>Add User</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<div class="row pl-1 pt-1 table-ag-grid">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="table-responsive">
+          <table class="table table-responsive-md text-left margin-3 border-bottom">
+            <thead>
+              <tr class="bg-light text-dark">
+              <th class="py-1" scope="col"><small>Name</small></th>
+              <th class="py-1" scope="col"><small>Gender</small></th>
+              <th class="py-1" scope="col"><small>Phone</small></th>
+              <th class="py-1" scope="col"><small>Position</small></th>
+              <th class="py-1" scope="col"><small>Permission</small></th>
+              <th class="py-1" scope="col"><small>Date of Birth</small></th>
+              <th class="py-1" scope="col"><small>Action</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dataUsers of users">
+              <td class="py-1" scope="col"><small>{{dataUsers.name}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataUsers.gender}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataUsers.phone}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataUsers.postion}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataUsers.permission}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataUsers.birthday}}</small></td>
+              <td  class="py-1 d-flex flex-wrap text-center" scope="col">
+                <!-- <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0"
+                  (click)="openModalWithClass(view)">
+                  <i class="ft ft-eye font-small-1"></i>
+                </button>
+                <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0"
+                  (click)="openModalWithClass(edit)">
+                  <i class="ft ft-edit-2 font-small-1"></i>
+                </button> -->
+                <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-danger"
+                  (click)="onDelete(dataUsers.id)"data-toggle="tooltip" title="Delete User">
+                  <i class="fas fa-trash-alt font-small-1"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Create a new user</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action="">
+      <section>
+        <div class="row">
+          <div class="col-12 col-sm-8">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <label for="category">User</label>
+                <input name="name" [(ngModel)]="users.name" type="text" value="" class="form-control"
+                  placeholder="Name">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category">Gender</label>
+                <select selectedValue name="gender" [(ngModel)]="nUser.gender" id="" class="form-control">
+                  <option [ngValue]="Male" value="Male">Male</option>
+                  <option [ngValue]="Female" value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category">Email</label>
+                <input name="email" [(ngModel)]="users.email" type="email" value="" class="form-control"
+                  placeholder="email">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category">Phone</label>
+                <input name="phone" [(ngModel)]="users.phone" type="text" value="" class="form-control"
+                  placeholder="Phone">
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category">Position</label>
+                <input name="position" [(ngModel)]="users.position" type="text" value="" class="form-control"
+                  placeholder="Position">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category">Permission</label>
+                <input name="permission" [(ngModel)]="users.permission" type="text" value="" class="form-control"
+                  placeholder="Permission">
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category">Birthday</label>
+                <input name="dob" [(ngModel)]="nUser.birthday" type="text" value="" class="form-control"
+                  placeholder="DoB">
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category">Password</label>
+                <input name="password" [(ngModel)]="users.password" type="password" value="" class="form-control"
+                  placeholder="Password">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category">Confirm</label>
+                <input name="c_password" [(ngModel)]="users.c_password" type="password" value="" class="form-control"
+                  placeholder="Confirm">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="row">
+              <div class="col-12 col-sm-12">
+
+                <ngx-dropzone class="picture-container" [(multiple)]="multipleUpload" (change)="onSelect($event)">
+                  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let img of files" [file]="img"
+                    [removable]="true" (removed)="onRemove($event)">
+                  </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="form-row">
+        <div class="col-12 col-sm-4  text-left">
+          <p class="content-sub-header"></p>
+        </div>
+        <div class="col-12 col-sm-8 text-right pt-1">
+          <div class="btn-group btn-group-justified">
+            <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onCreateSave()">Save</button>
+            <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="modalRef.hide()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+
+
+
+<!-- popup view user -->
+<ng-template #view>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">View user</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngFor="let oUser of dataUser" action="">
+      <section>
+        <div class="row">
+          <div class="col-12 col-sm-8">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">Name</label>
+                <p type="text" value="" class="" placeholder="Name">{{oUser.name}} </p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">User</label>
+                <p type="text" value="" class="" placeholder="User">{{oUser.user}}</p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">Gender</label>
+                <p name="gender" id="" class="">{{oUser.gender}}</p>
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">Phone</label>
+                <p type="text" value="" class="" placeholder="Phone">{{oUser.phone}}</p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">Position</label>
+                <p type="text" value="" class="" placeholder="Position">{{oUser.position}}</p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category" class="font-weight-bold">DoB</label>
+                <p type="text" value="" class="" placeholder="DoB">{{oUser.dob}}</p>
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category" class="font-weight-bold">Password</label>
+                <p type="password" value="" class="" placeholder="Password">{{oUser.password}}</p>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category" class="font-weight-bold">Confirm</label>
+                <p type="password" value="" class="" placeholder="Confirm">{{oUser.confirm}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="row">
+              <div class="col-12 col-sm-12">
+                <!-- <img class="conten-center upload " src="assets/img/01.jpg"/><br>
+                  <input id="file-input" type="file" /> -->
+                <app-input-image [(files)]="myfile">{{oUser.image}} </app-input-image>
+                <!-- <button (click)="Onupoad()">Upload</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</ng-template>
+<!-- end popup view user -->
+
+
+<ng-template #edit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit user</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action="">
+      <section>
+        <div class="row">
+          <div class="col-12 col-sm-8">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                <label for="category">Name</label>
+                <input name="name" [(ngModel)]="eUser.name" type="text" value="" class="form-control"
+                  placeholder="Name">
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category">User</label>
+                <input name="user" [(ngModel)]="eUser.user" type="text" value="" class="form-control"
+                  placeholder="User">
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category">Gender</label>
+                <select name="gender" [(ngModel)]="eUser.gender" id="" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-4">
+                <label for="category">Phone</label>
+                <input name="phone" [(ngModel)]="eUser.phone" type="text" value="" class="form-control"
+                  placeholder="Phone">
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category">Position</label>
+                <input name="position" [(ngModel)]="eUser.position" type="text" value="" class="form-control"
+                  placeholder="Position">
+              </div>
+              <div class="col-12 col-sm-4">
+                <label for="category">DoB</label>
+                <input name="dob" [(ngModel)]="eUser.dob" type="text" value="" class="form-control" placeholder="DoB">
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-sm-6">
+                <label for="category">Password</label>
+                <input name="password" [(ngModel)]="eUser.password" type="password" value="" class="form-control"
+                  placeholder="Password">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="category">Confirm</label>
+                <input name="confirm" [(ngModel)]="eUser.confirm" type="password" value="" class="form-control"
+                  placeholder="Confirm">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="row">
+              <div class="col-12 col-sm-12">
+                <!-- <img class="conten-center upload " src="assets/img/01.jpg"/><br>
+                  <input id="file-input" type="file" /> -->
+                <app-input-image [(files)]="myfile"></app-input-image>
+                <!-- <button (click)="Onupoad()">Upload</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="form-row">
+        <div class="col-12 col-sm-4  text-left">
+          <p class="content-sub-header"></p>
+        </div>
+        <div class="col-12 col-sm-8 text-right pt-1">
+          <div class="btn-group btn-group-justified">
+            <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+              (click)="eSave()">Save</button>
+            <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+              (click)="modalRef.hide()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

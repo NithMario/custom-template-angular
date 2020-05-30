@@ -1,0 +1,26 @@
+{
+    "closedWon": [
+        {
+            "no":"01",
+            "topic":"Web app",
+            "company":"Redfox",
+            "contact":"admin",
+            "date":"27/dec/2019",
+            "status":"Close won",
+            "amount":"$100.00"
+        }
+    ],
+  
+    "closedLose": [
+      {
+            "no":"02",
+            "topic":"Web app",
+            "company":"Redfox",
+            "contact":"admin",
+            "date":"27/dec/2019",
+            "status":"Close won",
+            "amount":"$100.00"
+      }
+     
+  ]
+  }

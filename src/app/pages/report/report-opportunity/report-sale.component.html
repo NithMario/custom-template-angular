@@ -1,0 +1,160 @@
+<!-- Testing table....... -->
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header bg-light">
+              <div class="form-row p-1">
+                <div class="col-12 col-sm-2 pl-1 pt-0">
+                  <p class="text-secondary mb-0 mt-1 font-small-3">Opportunity reports</p>
+                </div>
+                <div class="col-12 col-sm-1 text-sm-center bd-highlight">
+                  <div class="">
+                    <p class="" for=""> Group by </p>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg" (change)="gChanged($event)" [(ngModel)]="bSelected">
+                      <option [ngValue]="company">Company</option>
+                      <option [ngValue]="assign">Assign by</option>
+                      <option [ngValue]="status">Status</option>
+                      <option [ngValue]="date">Date</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-1 text-sm-center p-1 bd-highlight">
+                  <div class="">
+                    <label class="" for=""> filter </label>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg">
+                      <option value="">By month</option>
+                      <option value="">By Year</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg">
+                      <option *ngFor="let month of months" value=""> {{month.name}} </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <select class="form-control form-control-lg">
+                      <option value="" *ngFor='let year of years'> {{year.name}} </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row m-1">
+                <div class="col-md-8"></div>
+                <div class="search-report p-0 col-md-4">
+                  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder=" Start searching for opportunity">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  Table of report -->
+
+
+
+<!--  -->
+<div class="row pl-1 table-ag-grid mt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="table-ag-grid">
+              <div class=" mt-0 flex-sm-fill text-sm-left">
+                <label for="" class="mt-1 d-flex p-1">Closed Won</label>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-responsive-md text-left margin-3 border-bottom">
+                  <thead>
+                    <tr class="bg-light text-dark">
+                      <th class="py-1" scope="col"><small>No</small></th>
+                      <th class="py-1" scope="col"><small>Topic</small></th>
+                      <th class="py-1" scope="col"><small>Company</small></th>
+                      <th class="py-1" scope="col"><small>Contact</small></th>
+                      <th class="py-1" scope="col"><small>Date</small></th>
+                      <th class="py-1" scope="col"><small>Status</small></th>
+                      <th class="py-1" scope="col"><small>Amount</small></th>
+                    </tr>
+                  </thead>
+                  <tbody class="">
+                    <tr *ngFor='let won of dataWon | filter:searchText'>
+                      <td class="py-1" scope="col"><small>{{won.no}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.topic}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.company}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.contact}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.date}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.status}}</small></td>
+                      <td class="py-1" scope="col"><small>{{won.amount}}</small></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pl-1 table-ag-grid mt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header">
+        <div class="col-12 col-sm-12 p-0">
+          <div class="card my-0 shadow-z-1 h-100">
+            <div class="mt-0 flex-sm-fill text-sm-left">
+              <label for="" class="mt-1 d-flex p-1">Closed Lose</label>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-responsive-md text-left margin-3 border-bottom">
+                <thead>
+                  <tr class="bg-light text-dark">
+                    <th class="py-1" scope="col"><small>No</small></th>
+                    <th class="py-1" scope="col"><small>Topic</small></th>
+                    <th class="py-1" scope="col"><small>Company</small></th>
+                    <th class="py-1" scope="col"><small>Contact</small></th>
+                    <th class="py-1" scope="col"><small>Date</small></th>
+                    <th class="py-1" scope="col"><small>Status</small></th>
+                    <th class="py-1" scope="col"><small>Amount</small></th>
+                  </tr>
+                </thead>
+                <tbody class="">
+                  <tr *ngFor='let won of dataWon | filter:searchText'>
+                    <td class="py-1" scope="col"><small>{{won.no}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.topic}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.company}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.contact}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.date}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.status}}</small></td>
+                    <td class="py-1" scope="col"><small>{{won.amount}}</small></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

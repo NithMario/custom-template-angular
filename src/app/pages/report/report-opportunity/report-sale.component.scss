@@ -1,0 +1,10 @@
+.table-ag-grid{
+    min-height: calc(50vh - 1.5rem);
+}
+ag-grid-angular{
+    min-height: calc(85vh - 1.5rem);
+}
+::ng-deep .ag-theme-balham .ag-root {
+    border-right: none !important;
+    border-left: none !important;
+}

@@ -1,0 +1,69 @@
+
+
+<div [formGroup]="angForm" novalidate class="form-group mb-0">
+  <label class="small font-weight-light text-muted" *ngIf="label">{{label}}</label>
+
+  <div class="input-group">
+    <!-- start input field​  for  text  || number || search || email || password-->
+    <!-- Check Example :  'http://localhost:4200/testing' -->
+    <input
+      *ngIf="fieldType == 'text' || fieldType == 'number'  || fieldType == 'search' || fieldType == 'email' || fieldType == 'password'"
+      [required]="fieldRequired" class="form-control " [type]="fieldType" [(ngModel)]="value" [name]="fieledName"
+      (ngModelChange)="valueChange.emit(value)" formControlName="fieledName" />
+    <div *ngIf="appendButton" class="input-group-append">
+      <button class="btn btn-raised btn-primary" type="button">{{appendButton}}</button>
+
+    </div>
+  </div>
+
+  <!-- end input field​  for  text  || number || search || email || password-->
+
+  <!-- start  input field​  for  date -->
+  <input *ngIf="fieldType == 'date'  " [required]="fieldRequired" class="form-control"  [(ngModel)]="value"
+    [name]="fieledName" (ngModelChange)="test($event)"  (ngModelChange)="valueChange.emit(value)" formControlName="fieledName" bsDatepicker />
+
+  <!-- end  input field​  for  date -->
+
+  <!-- start  input field​  for  select -->
+  <select *ngIf="fieldType == 'select'  " [required]="fieldRequired" class="form-control" [(ngModel)]="value"
+    [name]="fieledName" (ngModelChange)="valueChange.emit(value)" formControlName="fieledName">
+    <option *ngFor="let item of optionValues">{{item.name}}</option>
+  </select>
+  <!-- end  input field​  for  select -->
+
+  <!-- start  input field​  for  editor -->
+  <div class="mt-2" *ngIf="fieledName == 'editor'">
+    <quill-editor [style]="{height: '200px'}" (onEditorCreated)="setFocus($event)"></quill-editor>
+  </div>
+
+  <!-- end  input field​  for  editor -->
+
+  <!--Start: Message Error below Component if invalid or null -->
+  <div
+    *ngIf="angForm.controls['fieledName'].invalid && (angForm.controls['fieledName'].dirty || angForm.controls['fieledName'].touched)"
+    class="text-danger mt-1">
+    <div *ngIf="angForm.controls['fieledName'].errors.required">
+      {{label}} is required.
+    </div>
+  </div>
+
+</div>
+<!--End: Message Error below Component if invalid or null -->
+
+<!--Start  Check Box  -->
+<div *ngIf="fieldCheckBoxLabel" class="custom-control custom-checkbox mt-2">
+  <input type="checkbox" class="custom-control-input" [id]="fieldCheckBoxid">
+  <label class="custom-control-label" [for]="fieldCheckBoxid">{{fieldCheckBoxLabel}}</label>
+</div>
+<!--End  Check Box  -->
+
+<!-- Switch -->
+<div *ngIf="fieldSwitch !=''">
+  <ui-switch checked="">
+    <span class="switch switch-medium"><small></small></span>
+  </ui-switch>
+  <ui-switch class="ml-1"><span class="switch switch-medium">
+      <!----><small></small></span></ui-switch>
+</div>
+
+<!--End Switch -->

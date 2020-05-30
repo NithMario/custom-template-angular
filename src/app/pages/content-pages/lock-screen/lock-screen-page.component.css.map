@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,YAAY,CAAC;EACX,gBAAgB,EAAE,kDAAkD;EACpE,eAAe,EAAE,SAAS;EAC1B,iBAAiB,EAAE,SAAS;CAkB7B;;AArBD,AAKE,YALU,CAKV,gBAAgB,CAAC;EACf,UAAU,EAAE,OAAO;EACnB,OAAO,EAAE,CAAC;CACX;;AARH,AAWI,YAXQ,CAUV,IAAI,AAAA,SAAS,AAAA,qBAAqB,AAC/B,MAAM,CAAC;EACN,eAAe,EAAE,eAAe;CACjC;;AAbL,AAiBI,YAjBQ,CAgBV,UAAU,CACR,IAAI,AAAA,SAAS,CAAC;EACZ,SAAS,EAAE,IAAI;CAChB",
+    "sources": [
+        "lock-screen-page.component.scss"
+    ],
+    "names": [],
+    "file": "lock-screen-page.component.css"
+}

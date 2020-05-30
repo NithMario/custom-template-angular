@@ -1,0 +1,280 @@
+<!-- Page Company -->
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Home of Company</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3" (click)="onNew(news)">New</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<div class="row pl-1 table-ag-grid pt-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+          <div class="form-row">
+            <div class="col-12 col-sm-5 pl-1 pt-0">
+              <p class="text-secondary mb-0 mt-1 font-small-3">More Company</p>
+            </div>
+            <div class="col-12 col-sm-7 pt-0 d-flex">
+              <div class="input-group input-group-sm mb-0">
+                <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                  [(ngModel)]="searchText" autocomplete="off" />
+                <div class="input-group-append">
+                  <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                    <i class="ft-search"></i>
+                  </button>
+                </div>
+              </div>
+              <button class="btn input-group-text btn-sm px-1">
+                <i class="ft ft-filter text-dark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-responsive-md text-left margin-3 border-bottom">
+              <thead>
+                <tr class="bg-light text-dark">
+                <th class="py-1" scope="col"><small>Company</small></th>
+                <th class="py-1" scope="col"><small>Industry</small></th>
+                <th class="py-1" scope="col"><small>Website</small></th>
+                <th class="py-1" scope="col"><small>Email</small></th>
+                <th class="py-1" scope="col"><small>Phone</small></th>
+                <th class="py-1" scope="col"><small>Address</small></th>
+                <th class="py-1" scope="col"><small>Action</small></th>
+              </tr>
+            </thead>
+            <!-- Detail company -->
+            <tbody>
+              <tr *ngFor="let dataCompany of dataCompanys | filter:searchText">
+                <td class="py-1" scope="col">{{dataCompany.name}}  </td>
+                <td class="py-1" scope="col">{{dataCompany.industry}}</td>
+                <td class="py-1" scope="col">{{dataCompany.website}}</td>
+                <td class="py-1" scope="col">{{dataCompany.email}}</td>
+                <td class="py-1" scope="col">{{dataCompany.phone}}</td>
+                <td class="py-1" scope="col">{{dataCompany.address}}</td>
+                <td  class="py-1 d-flex flex-wrap text-center" scope="col">
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="onView()"
+                    [routerLink]="['/company/detailCompany',dataCompany.id]"
+                    data-toggle="tooltip" title="Detail Company">
+                    <i class="ft ft-eye text-dark font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="onEdit(edit,dataCompany.id)"
+                  data-toggle="tooltip" title="Edit Company">
+                    <i class="ft ft-edit-2 text-dark font-small-1"></i>
+                  </button>
+                  <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0" (click)="confirmCancelButton(dataCompany.id)"
+                  data-toggle="tooltip" title="Delete Company">
+                    <i class="fas fa-trash-alt text-danger font-small-1"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup edit company -->
+<ng-template #edit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left text-uppercase">Edit Company</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row bg-secondary mt-2">
+        <div class="col-12 col-md-12">
+          <label for="" class="text-white pt-1">About Company </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Company Name </label>
+          <input name="company" [(ngModel)]="eCompany.name" type="text" class="form-control"
+            placeholder="Company Name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Industry </label>
+          <!-- [(ngModel)]="eCompany.industry" -->
+          <select selectedValue  name="industry"  id="industry1" class="form-control">
+            <option [ngValue]="Education">Education</option>
+            <option [ngValue]="Bank">Bank</option>
+            <option [ngValue]="e-commerce" value="e-commerce">e-commerce</option>
+            <option [ngValue]="Tourism"  value="Tourism">Tourism</option>
+            <option [ngValue]="Entertainment"  value="Entertainment">Entertainment</option>
+            <option [ngValue]="Management" value="Management">Management</option>
+            <option [ngValue]="NGO"   value="NGO">NGO</option>
+            <option [ngValue]="Other" value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Website </label>
+          <input name="website" [(ngModel)]="eCompany.website" type="text" class="form-control" placeholder="Website">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Phone Company </label>
+          <input name="phone_company" [(ngModel)]="eCompany.phone" type="text" class="form-control"
+            placeholder="Phone Company">
+        </div>
+        <div class=" col-md-4">
+          <label for=""> Email </label>
+          <input name="email_company" [(ngModel)]="eCompany.email" type="text" class="form-control"
+            placeholder="Email">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Reason </label>
+          <input name="reason" [(ngModel)]="eCompany.reason" type="text" class="form-control" placeholder="Reason">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Feedback </label>
+          <input name="feedback" [(ngModel)]="eCompany.feedback" type="text" class="form-control" placeholder="Feedback">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Topic </label>
+          <input name="topic" [(ngModel)]="eCompany.topic" type="text" class="form-control" placeholder="Topic">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Owner </label>
+          <input name="owner" [(ngModel)]="eCompany.owner" type="text" class="form-control" placeholder="Owner">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Address Company </label>
+          <input name="address_company" [(ngModel)]="eCompany.address" type="text" class="form-control"
+            placeholder="Address Company">
+        </div>
+        <div class="col-12 col-md-8">
+          <label for=""> Requirement </label>
+          <textarea name="requirement" [(ngModel)]="eCompany.requirement" type="" class="form-control"
+            placeholder="Requirement"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-sm-12 text-right pt-1">
+    <div class="btn-group btn-group-justified">
+      <button class="btn btn-primary btn-raised btn-sm btn-sm px-4"
+        (click)="doSave()">Save</button>
+        <button class="btn btn-primary btn-raised btn-sm btn-sm px-4 ml-1"
+        (click)="doSaveNew()">Save&New</button>
+      <button class="btn btn-danger btn-raised btn-sm btn-sm px-4 ml-1"
+        (click)="modalRef.hide()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #news>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Create new Company</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <form class="form-group">
+      <div class="row bg-light mt-2">
+        <div class="col-12 col-md-12">
+          <label for="" class=" pt-1">About Company </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Company Name </label>
+          <input name="company" [(ngModel)]="nCompany.company" type="text" class="form-control"
+            placeholder="Company Name">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Industry </label>
+          <select name="industry" [(ngModel)]="nCompany.industry" id="industry1" class="form-control">
+            <option value="Education">Education</option>
+            <option value="Bank">Bank</option>
+            <option value="e-commerce">e-commerce</option>
+            <option value="Tourism">Tourism</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Management">Management</option>
+            <option value="NGO">NGO</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Website </label>
+          <input name="website" [(ngModel)]="nCompany.website" type="text" class="form-control" placeholder="Website">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Phone Company </label>
+          <input name="phone_company" [(ngModel)]="nCompany.phone" type="text" class="form-control"
+            placeholder="Phone Company">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Email </label>
+          <input name="email_company" [(ngModel)]="nCompany.email" type="text" class="form-control"
+            placeholder="Email">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Reason </label>
+          <input name="reason" [(ngModel)]="nCompany.reason" type="text" class="form-control" placeholder="Reason">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Feedback </label>
+          <input name="feedback" [(ngModel)]="nCompany.feedback" type="text" class="form-control"
+            placeholder="Feedback">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Topic </label>
+          <input name="topic" [(ngModel)]="nCompany.topic" type="text" class="form-control" placeholder="Topic">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for=""> Owner </label>
+          <input name="owner" [(ngModel)]="nCompany.owner" type="text" class="form-control" placeholder="Owner">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <label for=""> Address Company </label>
+          <input name="address_company" [(ngModel)]="nCompany.address" type="text" class="form-control"
+            placeholder="Address Company">
+        </div>
+        <div class="col-12 col-md-8">
+          <label for=""> Requirement </label>
+          <textarea name="requirement" [(ngModel)]="nCompany.requirement" type="" class="form-control"
+            placeholder="Requirement"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-12 col-sm-12 text-right pt-1">
+    <div class="btn-group btn-group-justified">
+      <button class="btn btn-primary btn-raised btn-sm btn-sm px-4"
+        (click)="saveCompany()">Save</button>
+      <button class="btn btn-danger btn-raised btn-sm btn-sm px-4 ml-1"
+        (click)="modalRef.hide()">Cancel</button>
+    </div>
+  </div>
+</ng-template>

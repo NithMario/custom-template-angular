@@ -1,0 +1,24 @@
+.bg-primary{
+         height: 100vh;
+         width: 60px;
+         background-color:#0D47A1;
+         position: fixed;
+         z-index: 999;
+         
+}
+#my-color{
+         color: white;
+}
+
+#my-mg{
+         margin-top: 20px;
+         margin-left:18px;
+}
+.my-mt{
+         margin-top: 350px;
+}
+.dropdown-toggle{
+    &::after{
+        content: none;
+    }
+}

@@ -1,0 +1,34 @@
+.center-block {
+    margin-top: -16px;
+    margin-left:-28px ;
+ }
+ .numbers{
+     height: 120px;
+ }
+ .numbers:hover{
+    //  transform:rotate(360deg);
+     transition-duration: 2s;
+    }
+    .center{
+        margin-top: -25px;
+
+        margin-left:-78px ;
+    }
+    .close{
+        margin-top: -10px;
+
+        margin-left: -90px;
+    }
+    .convert{
+        margin-top: -22px;
+        margin-left: -70px;
+    }
+    .text-1{
+        color:rgb(237, 203, 90) ;
+    }
+    .text-2{
+        color:rgb(180, 117, 170) ;
+    }
+    .text-3{
+        color:rgb(72, 95, 228) ;
+    }

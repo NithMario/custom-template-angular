@@ -1,0 +1,30 @@
+export class Users {
+    id:string; 
+    title:string; 
+    phone:string; 
+    email:string;
+	username:string;
+	district:string;
+	commune:string;
+	country:string;
+	city:string;
+	password:string;
+	api_token:string;
+	photo:string;
+	is_active:boolean;
+	is_locked:boolean;
+	created_date:string;
+	created_by_id:string;
+	updated_date:string;
+	updated_by_id:string;
+	currency_code:string;
+	user_type:string;
+	is_admin:boolean;
+	status:string;
+	user_roles_id:string;
+	is_backup:boolean;
+	user_code:string;
+	company_id:string;
+	lock_reason:string;
+	user_permission_id: string;
+}

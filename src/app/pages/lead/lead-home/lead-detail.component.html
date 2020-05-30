@@ -1,0 +1,153 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0 bg-primary">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Home of Lead</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary bg-primary btn-raised btn-sm btn-sm px-3" (click)="newLead()">New</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create data display -->
+<!--  -->
+
+<div class="row pl-1 table-ag-grid mt-1">
+  <div class="col-12 col-sm-12 p-0 bg-primary">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="row pl-1 pt-1">
+          <div class="col-12 col-sm-12 p-0">
+              <!-- Searching -->
+              <div class="form-row">
+                <div class="col-12 col-sm-5 pl-1 pt-0">
+                  <p class="text-secondary mb-0 mt-1 font-small-3">More Lead</p>
+                </div>
+                <div class="col-12 col-sm-7 pt-0 d-flex">
+                  <div class="input-group input-group-sm mb-0">
+                    <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                      [(ngModel)]="searchText" autocomplete="off" />
+                    <div class="input-group-append">
+                      <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                        <i class="ft-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <button class="btn input-group-text btn-sm px-1">
+                    <i class="ft ft-filter text-dark"></i>
+                  </button>
+                </div>
+              </div>
+              <!--  -->
+              <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="bg-light text-dark">
+                    <th class="py-1" scope="col"><small>First</small></th>
+                    <th class="py-1" scope="col"><small>Last</small></th>
+                    <th class="py-1" scope="col"><small>Gender</small></th>
+                    <th class="py-1" scope="col"><small>Phone</small></th>
+                    <th class="py-1" scope="col"><small>Company</small></th>
+                    <th class="py-1" scope="col"><small>Industry</small></th>
+                    <th class="py-1" scope="col"><small>Topic</small></th>
+                    <th class="py-1" scope="col"><small>Owner</small></th>
+                    <th class="py-1" scope="col"><small>Assign To</small></th>
+                    <th class="py-1" scope="col"><small>Action</small></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="" *ngFor="let dataLead of dataLeads | filter:searchText">
+                    <!-- <td>{{dataLead.id}}</small></td> -->
+                    <td class="py-1" scope="col"><small>{{dataLead.firstname}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.lastname}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.gender}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.phone}}</small></td>
+                 
+                    <td class="py-1" scope="col"><small>{{dataLead.company}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.industry}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.topic}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.owner}}</small></td>
+                    <td class="py-1" scope="col"><small>{{dataLead.name}}</small></td>
+                    <td class="py-1 d-flex flex-wrap" scope="col">
+                      <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-center" (click)="viewLead()"
+                        [routerLink]="['/lead/view-lead',dataLead.id]"data-toggle="tooltip" title="Detail Lead">
+                        <i class="ft ft-eye text-dark font-small-1"></i>
+                      </button>
+                      <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-center" (click)="assignLead(template,dataLead.user_id)"
+                      data-toggle="tooltip" title="Assign Lead">
+                        <i class="fas fa-hands-helping text-dark font-small-1"></i>
+                      </button>
+                      <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-center" (click)="editLead()"
+                        [routerLink]="['/lead/edit-lead',dataLead.id] "data-toggle="tooltip" title="Edit Lead">
+                        <i class="ft ft-edit-2 text-dark font-small-1"></i>
+                      </button>
+                      <button class="btn input-group-text p-1 mr-1 rounded-lg mb-0 text-center" (click)="onRemoved(dataLead.id)"
+                      data-toggle="tooltip" title="Delete Lead">
+                        <i class="fas fa-trash-alt text-danger font-small-1"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end of assign  -->
+
+<!-- assign to action popup -->
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Owner*</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-body">
+      <div class="col-12 col-sm-12">
+        <label for=""> Assign to </label>
+        <!-- select assign -->
+        <form   [formGroup]="countryForm">
+          <!-- selectedValue -->
+          <select (change)="onAssigned()" [(ngModel)]="selectedValue" formControlName="countryControl"   class="form-control" name="assign">
+          
+            <option value="">Assign To</option>
+
+            <option *ngFor="let users of objUsers"   [ngValue]="users.id" >{{users.name}}</option>
+  
+         
+          </select>
+        </form>
+      
+      </div>
+      <div class="col-12 col-sm-12 pt-2">
+        <label for="">Date</label>
+        <input name="name" [(ngModel)]="assign.date" type="date" value="date()" class="form-control">
+      </div>
+    </div>
+    <!-- btn popup assign to -->
+    <div class="col-12 col-sm-12 text-right pt-1">
+      <div class="btn-group btn-group-justified">
+        <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+          (click)="assignTo()">Assigned</button>
+        <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+          (click)="modalRef.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- end assign to action popup -->

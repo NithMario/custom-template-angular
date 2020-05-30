@@ -1,0 +1,78 @@
+#coming-soon {
+  background-image: url("../../../../assets/img/gallery/light-bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#coming-soon .card-coming-soon {
+  border-radius: 0.5rem;
+}
+
+#coming-soon .getting-started {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#coming-soon .cs-text-divider {
+  width: 100%;
+  text-align: center;
+}
+
+#coming-soon .cs-text-divider hr {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+#coming-soon .cs-text-divider span {
+  position: relative;
+  top: 11px;
+}
+
+#coming-soon .btn.btn-lg.btn-primary {
+  color: #fff !important;
+}
+
+@media (max-width: 540px) {
+  #coming-soon {
+    overflow: hidden;
+  }
+  #coming-soon .card-coming-soon {
+    position: relative;
+    top: -12px;
+  }
+  #coming-soon .card-coming-soon .card-header {
+    padding: 1rem;
+  }
+  #coming-soon .card-coming-soon .card-header h4.card-title {
+    font-size: 1rem;
+  }
+  #coming-soon .card-coming-soon img.img-cs {
+    width: 100px;
+  }
+  #coming-soon .card-coming-soon .cs-text-divider hr {
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+  }
+  #coming-soon .card-coming-soon .getting-started {
+    padding-top: 0 !important;
+    margin-top: auto !important;
+  }
+  #coming-soon .card-coming-soon .getting-started .clockCard {
+    margin-bottom: 0.5rem !important;
+  }
+  #coming-soon .card-coming-soon .getting-started .clockCard P.lead {
+    margin-top: 0 !important;
+  }
+  #coming-soon .card-coming-soon input.form-control {
+    margin-top: 0.5rem !important;
+  }
+}
+/*# sourceMappingURL=coming-soon-page.component.css.map */

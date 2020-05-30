@@ -1,0 +1,36 @@
+
+
+    ::ng-deep [_nghost-c12] {
+        align-items: baseline !important;
+       }
+
+       ::ng-deep [_nghost-c2] {
+        align-items: baseline !important;
+        align-items:none;
+       }
+       
+    ::ng-deep [_nghost-c13] img[_ngcontent-c13] {
+        width: 100px !important;
+        height: 80px !important;
+        max-width: 100% !important;
+        max-height: 80px !important;
+        object-fit: cover;
+    }
+    ngx-dropzone{
+
+       ngx-dropzone-image-preview{
+     
+        width: auto !important;
+
+           height: 80px !important;
+           min-height: 150px !important;
+
+        
+       }
+      
+    }
+
+    ::ng-deep [_nghost-c3] img[_ngcontent-c3] {
+     width: 200px;
+     height: 200px;
+    }

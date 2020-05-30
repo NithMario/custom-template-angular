@@ -1,0 +1,15 @@
+<div class="input-group-append input-group-xs d-inline-flex">
+  <button class="btn input-group-text btn-xs p-1 mr-1 rounded-lg" (click)="onDetail($event)">
+    <i class="ft-edit-2 font-small-1"></i>
+  </button>
+  <button class="btn input-group-text btn-xs p-1 text-danger mr-1 rounded-lg" (click)="onRemove($index)">
+    <i class="ft-trash-2 font-small-1"></i>
+  </button>
+    <select class="btn input-group-text btn-xs p-1 text-dark mr-1 rounded-lg">
+      <option value="1">Add New</option>
+      <option value="2">Remove</option>
+      <option value="3">Save</option>
+      <option value="3">Save As</option>
+      <option value="4">Exit</option>
+    </select>
+</div>

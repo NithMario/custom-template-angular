@@ -1,0 +1,19 @@
+#lock-screen {
+  background-image: url("../../../../assets/img/gallery/light-bg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#lock-screen .lock-screen-img {
+  background: #f0f0f0;
+  padding: 0;
+}
+
+#lock-screen .btn.btn-link.text-decoration-none:hover {
+  text-decoration: none !important;
+}
+
+#lock-screen .login-btn .btn.btn-link {
+  font-size: 14px;
+}
+/*# sourceMappingURL=lock-screen-page.component.css.map */

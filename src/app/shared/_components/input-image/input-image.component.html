@@ -1,0 +1,20 @@
+<!-- <label for="logo">Logo</label><br>
+<ngx-dropzone class="m-0" [(multiple)]="multipleUpload" [expandable]="false" [accept]="'image/*'" (change)="onSelect($event)">
+    <ngx-dropzone-label>
+        <div class="icon-thumbnail-tab">
+            <i class="fa fa-upload text-info font-medium-1"></i>
+            <p class="text-secondary">Drop image</p>
+        </div>
+    </ngx-dropzone-label>
+    <ngx-dropzone-image-preview class="m-auto w-100"
+            ngProjectAs="ngx-dropzone-preview" *ngFor="let img of files" [(file)]="img"[removable]="true" (removed)="onRemove(f)">
+    </ngx-dropzone-image-preview>
+</ngx-dropzone> -->
+
+
+<ngx-dropzone [(ngModel)]="nUser.image" class="picture-container"  [(multiple)] ="multipleUpload" (change)="onSelect($event)">
+    <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"   *ngFor="let img of files" [file]="img" [removable]="true" (removed)="onRemove($event)">
+      </ngx-dropzone-image-preview>
+</ngx-dropzone>
+

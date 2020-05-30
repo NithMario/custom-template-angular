@@ -1,0 +1,72 @@
+<!-- popup view of products -->
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Detail of Products</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3" (click)="onCancel()">
+                <span aria-hidden="true">Cancel</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="row pl-1 pt-1 table-ag-grid">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <div class="container-fluid">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Product Name</label>
+                <p class="">{{product.name}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Barcode</label>
+                <p class="">{{product.barcode}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold">Category</label>
+                <p class="">{{product.category}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Sale Price </label>
+                <p class="">{{product.sale_price}} </p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Regular Price </label>
+                <p class="">{{product.regular_price}}</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Source </label>
+                <p class="">{{product.source}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <label for="" class="font-weight-bold"> Date </label>
+                <p class="">{{product.created_at}}</p>
+              </div>
+              <div class="col-12 col-md-8">
+                <label for="" class="font-weight-bold"> Description</label>
+                <p class="">{{product.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

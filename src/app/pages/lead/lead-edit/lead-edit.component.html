@@ -1,0 +1,225 @@
+<!-- header of create lead -->
+<!--  -->
+<div class="row pl-1">
+    <div class="col-12 col-sm-12 p-0 bg-primary">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header bg-light pt-1">
+                <div class="form-row">
+                    <div class="col-12 col-sm-6  text-left">
+                        <h3 class="content-header mt-1">Page edit of lead</h3>
+                        <p class="content-sub-header"></p>
+                    </div>
+                    <div class="col-12 col-sm-6 text-right pt-1">
+                        <div class="btn-group btn-group-justified">
+                            <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+                                (click)="onSave()">Save</button>
+                                <button class="btn btn-primary btn-raised btn-sm btn-sm px-3 ml-1"
+                                (click)="onSaveAs()">Save As</button>
+                            <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1"
+                                (click)="onCancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<!-- Body of input field of create lead -->
+<!-- About contact -->
+
+<!--  -->
+<div class="row pl-1 mt-1 table-ag-grid">
+    <div class="col-12 col-sm-12 p-0">
+        <div class="card my-0 shadow-z-1 h-100">
+            <div class="card-header pt-1">
+                <form class="form-group">
+                    <div class="row">
+                        <div class="col-12 bg-light pt-1">
+                          <Label> Edit information contact </Label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> First Name</label>
+                            <input value="" name="firstName" [(ngModel)]="dataLeads.firstname" type="text"
+                                class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Last Name</label>
+                            <input name="lastName" [(ngModel)]="dataLeads.lastname" type="text" class="form-control"
+                                placeholder="Last name">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Gender </label>
+                            <!-- <input type="text" class="form-control" placeholder="Gender"> -->
+                            <select name="gender" [(ngModel)]="dataLeads.gender" class="form-control" name="gender">
+                                <option value="Gender">Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for="">Phone</label>
+                            <input name="phone" [(ngModel)]="dataLeads.phone" type="text" class="form-control"
+                                placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Mobile </label>
+                            <input name="mobile" [(ngModel)]="dataLeads.mobile" type="text" class="form-control"
+                                placeholder="Mobile">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Email </label>
+                            <input name="email" [(ngModel)]="dataLeads.email" type="text" class="form-control"
+                                placeholder="Email">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Date of Birth </label>
+                            <input name="dob" [(ngModel)]="dataLeads.dob" type="date" class="form-control"
+                                placeholder="Date of Birth">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Pleace of Birth </label>
+                            <input name="pob" [(ngModel)]="dataLeads.pob" type="text" class="form-control"
+                                placeholder="Pleace of Birth">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Position </label>
+                            <input name="position" [(ngModel)]="dataLeads.position" type="text" class="form-control"
+                                placeholder="Position">
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <label for=""> Address </label>
+                            <input name="address" [(ngModel)]="dataLeads.address" type="text" class="form-control"
+                                placeholder="Address">
+                        </div>
+                    </div>
+                    <!-- About Company -->
+                    <div class="row mt-2">
+                        <div class="col-12 bg-light pt-1">
+                          <Label> Edit information company </Label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Company Name </label>
+                            <input name="company" [(ngModel)]="dataLeads.company" type="text"
+                                class="form-control" placeholder="Company Name">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Industry </label>
+                            <select name="industry" [(ngModel)]="dataLeads.industry" id="industry1"
+                                class="form-control">
+                                <option value="Education">Education</option>
+                                <option value="Bank">Bank</option>
+                                <option value="e-commerce">e-commerce</option>
+                                <option value="Tourism">Tourism</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Management">Management</option>
+                                <option value="NGO">NGO</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Website </label>
+                            <input name="website" [(ngModel)]="dataLeads.website" type="text" class="form-control"
+                                placeholder="Website">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Phone Company </label>
+                            <input name="phone_company" [(ngModel)]="dataLeads.phone_company" type="text"
+                                class="form-control" placeholder="Phone Company">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Email </label>
+                            <input name="email_company" [(ngModel)]="dataLeads.email_company" type="email"
+                                class="form-control" placeholder="Email">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Reason </label>
+                            <input name="reason" [(ngModel)]="dataLeads.reason" type="text" class="form-control"
+                                placeholder="Reason">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Feedback </label>
+                            <input name="feedback" [(ngModel)]="dataLeads.feedback" type="text" class="form-control"
+                                placeholder="Feedback">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Requirement </label>
+                            <textarea name="requirement" [(ngModel)]="dataLeads.requirement" type="text"
+                                class="form-control" placeholder="Requirement"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Topic </label>
+                            <input name="topic" [(ngModel)]="dataLeads.topic" type="text" class="form-control"
+                                placeholder="Topic">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Owner </label>
+                            <input name="owner" [(ngModel)]="dataLeads.owner" type="text" class="form-control"
+                                placeholder="Owner">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for=""> Address Company </label>
+                            <input name="address_company" [(ngModel)]="dataLeads.address_company" type="text"
+                                class="form-control" placeholder="Address Company">
+                        </div>
+                    </div>
+                    <!-- About Status -->
+                    <div class="row mt-2">
+                        <div class="col-12 bg-light pt-1">
+                          <Label> Edit information status </Label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <label for=""> Rating </label>
+                            <select name="rating" [(ngModel)]="dataLeads.rating" class="form-control">
+                                <option value="Simple">Simple</option>
+                                <option value="Warn">Warn</option>
+                                <option value="Hot">Hot</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Stage </label>
+                            <select name="stage" [(ngModel)]="dataLeads.stage" id="stage1" class="form-control">
+                                <option value="Starting">Starting</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Close won">Close won</option>
+                                <option value="Close lose">Close lose</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Status </label>
+                            <select name="status" [(ngModel)]="dataLeads.status" id="status1" class="form-control">
+                                <option value="Open">Open</option>
+                                <option value="Inprocessing">Inprocessing</option>
+                                <option value="Hold">Hold</option>
+                                <option value="Close">Close</option>
+                                <option value="Converted">Converted</option>
+                                <option value="Unconverted">Unconverted</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label for=""> Date </label>
+                            <input name="date" [(ngModel)]="dataLeads.date" type="date" class="form-control"
+                                placeholder="Date">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "open_lead":100,
+    "all_opportunity":200,
+    "closed_won":300,
+    "closed_lose":400,
+    "total_opportunity_amount":"$10,000,000"
+}

@@ -1,0 +1,242 @@
+<div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1">Home of Opportunity</h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+                (click)="openModalWithClass(new)">New</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Home of opportunity -->
+<!--  -->
+<div class="row pl-1 mt-1 table-ag-grid">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header pt-1">
+        <!-- Searching -->
+        <div class="form-row">
+          <div class="col-12 col-sm-5 pl-1 pt-0">
+            <p class="text-secondary mb-0 mt-1 font-small-3">More Opportunity</p>
+          </div>
+          <div class="col-12 col-sm-7 pt-0 d-flex">
+            <div class="input-group input-group-sm mb-0">
+              <input type="text" class="form-control ml-2" placeholder="Search Lists" type="text" name="search"
+                [(ngModel)]="searchText" autocomplete="off" />
+              <div class="input-group-append">
+                <button class="btn input-group-text btn-sm py-0 mr-1" style="height: 67%;">
+                  <i class="ft-search"></i>
+                </button>
+              </div>
+            </div>
+            <button class="btn input-group-text btn-sm px-1">
+              <i class="ft ft-filter text-dark"></i>
+            </button>
+          </div>
+        </div>
+        <table class="table">
+          <thead class="">
+            <tr class="bg-light text-dark">
+              <th class="py-1" scope="col"><small>Topic</small></th>
+              <th class="py-1" scope="col"><small>Barcode</small></th>
+              <th class="py-1" scope="col"><small>Category</small></th>
+              <th class="py-1" scope="col"><small>Amount</small></th>
+              <th class="py-1" scope="col"><small>Stage</small></th>
+              <th class="py-1" scope="col"><small>Source</small></th>
+              <th class="py-1" scope="col"><small>Close Date</small></th>
+              <th class="py-1" scope="col"><small>Action</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dataOpp of dataOpps | filter:searchText">
+              <td class="py-1" scope="col"><small>{{dataOpp.topic}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.barcode}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.category}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.amount}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.stage}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.source}}</small></td>
+              <td class="py-1" scope="col"><small>{{dataOpp.closeDate}}</small></td>
+              <td class="py-1 d-flex flex-wrap" scope="col">
+                <button class="btn btn-sm  mr-1 rounded-1 btn-group border-secondary mb-0 font-small-1" (click)="onView()"
+                  [routerLink]="['/opportunity/detailOpp/lineItem',dataOpp.id] "data-toggle="tooltip" title="Create Line Item">
+                  <i class="far fa-plus-square font-small-1 text-dark"></i>
+                </button>
+                <button class="btn btn-sm  mr-1 rounded-1 btn-group border-secondary mb-0 font-small-1" (click)="onView()"
+                  [routerLink]="['/opportunity/detailOpp',dataOpp.id] "data-toggle="tooltip" title="Detail Opportunity">
+                  <i class="ft ft-eye text-dark font-small-1"></i>
+                </button>
+                <button class="btn btn-sm  mr-1 rounded-1 btn-group border-secondary mb-0 font-small-1"
+                  (click)="openModalWithClass(edit)"data-toggle="tooltip" title="Edit Opportunity">
+                  <i class="ft ft-edit-2 text-dark font-small-1"></i>
+                </button>
+                <button class="btn btn-sm  mr-1 rounded-1 btn-group border-secondary mb-0 font-small-1"
+                  (click)="onRemoved(dataOpp.id)"data-toggle="tooltip" title="Delete Opportunity">
+                  <i class="fas fa-trash-alt font-small-1 text-danger"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end home of opportunity -->
+<!-- Create a new opportunity -->
+<ng-template #new>
+  <div class="container">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Create a new opportunity</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Topic </label>
+        <input name="topic" [(ngModel)]="opportunity.topic" type="text" class="form-control" placeholder="Topic">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Barcode </label>
+        <input name="barcode" [(ngModel)]="opportunity.barcode" type="text" class="form-control" placeholder="Barcode">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Category </label>
+        <input name="category" [(ngModel)]="opportunity.category" type="text" class="form-control"
+          placeholder="Category">
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Amount </label>
+        <input name="amount" [(ngModel)]="opportunity.amount" type="text" class="form-control" placeholder="Amount">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Stage </label>
+        <select name="stage" required [(ngModel)]="opportunity.stage" class="form-control" name="stage">
+          <option value="Starting">Starting</option>
+          <option value="Meeting">Meeting</option>
+          <option value="Review">Review</option>
+          <option value="Closed Won">Closed Won</option>
+          <option value="Closed Lose">Closed Lose</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Source </label>
+        <input name="source" [(ngModel)]="opportunity.source" type="text" class="form-control" placeholder="Source">
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Date </label>
+        <input name="date" [(ngModel)]="opportunity.date" type="date" class="form-control" placeholder="Date">
+      </div>
+      <div class="col-12 col-sm-8 ml-0">
+        <label for=""> Description </label>
+        <textarea name="description" [(ngModel)]="opportunity.description" type="text" class="form-control"
+          placeholder="Description"></textarea>
+      </div>
+    </div>
+    <div class="form-row mt-1">
+      <div class="col-12 col-sm-4  text-left">
+        <p class="content-sub-header"></p>
+      </div>
+      <div class="col-12 col-sm-8 text-right pt-1">
+        <div class="btn-group btn-group-justified">
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+            (click)="onSave()">Save</button>
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+            (click)="onNewSave()">New&Save</button>
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+            (click)="modalRef.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- end a new opportunity -->
+
+<!-- edit of opportunity -->
+<ng-template #edit>
+  <div class="container">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit of opportunity</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Topic </label>
+        <input name="topic" [(ngModel)]="eOpps.topic" type="text" class="form-control" placeholder="Topic">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Barcode </label>
+        <input name="barcode" [(ngModel)]="eOpps.barcode" type="text" class="form-control" placeholder="Barcode">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Category </label>
+        <input name="category" [(ngModel)]="eOpps.category" type="text" class="form-control"
+          placeholder="Category">
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Amount </label>
+        <input name="amount" [(ngModel)]="eOpps.amount" type="text" class="form-control" placeholder="Amount">
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Stage </label>
+        <select name="stage" required [(ngModel)]="opportunity.stage" class="form-control" name="stage">
+          <option value="Starting">Starting</option>
+          <option value="Meeting">Meeting</option>
+          <option value="Review">Review</option>
+          <option value="Closed Won">Closed Won</option>
+          <option value="Closed Lose">Closed Lose</option>
+        </select>
+      </div>
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Source </label>
+        <input name="source" [(ngModel)]="eOpps.source" type="text" class="form-control" placeholder="Source">
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4 ml-0">
+        <label for=""> Date </label>
+        <input name="closeDate" [(ngModel)]="eOpps.closeDate" type="date" class="form-control" placeholder="Date">
+      </div>
+      <div class="col-12 col-sm-8 ml-0">
+        <label for=""> Description </label>
+        <textarea name="description" [(ngModel)]="eOpps.description" type="text" class="form-control"
+          placeholder="Description"></textarea>
+      </div>
+    </div>
+
+    <div class="form-row mt-1">
+      <div class="col-12 col-sm-4  text-left">
+        <p class="content-sub-header"></p>
+      </div>
+      <div class="col-12 col-sm-8 text-right pt-1">
+        <div class="btn-group btn-group-justified">
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+            (click)="onSave()">Save</button>
+          <button class="btn rds__btn-light btn-outline-secondary btn-sm px-3 border-secondary text-info"
+            (click)="modalRef.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

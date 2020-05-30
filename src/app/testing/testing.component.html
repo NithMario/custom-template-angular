@@ -1,0 +1,125 @@
+<!-- testing input field -->
+<!-- <div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <form>
+        <rds:inputField  [(value)]="testing" label="Testing" fieldType="date" fieldRequired="true"
+        fieledName="name"   ></rds:inputField>
+  
+        {{testing}}
+        <rds:inputField fieledName="name" [(value)]="parentMessage.name" appendButton="Click Me!" label="Text"
+          fieldType="text" fieldRequired="true" fieldCheckBoxLabel="Hello" fieldCheckBoxid="testing"></rds:inputField>
+        {{parentMessage.name}}
+     
+ 
+        <rds:inputField fieledName="editor" [(value)]="parentMessage.check" label="Text" fieldType="select"
+          fieldRequired="true"></rds:inputField>
+          
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+<Button (click)="test()">Click</Button>
+<Button (click)="localeTest()">Testing</Button> -->
+<!-- test output field -->
+<!-- <app-total-header fieldTitle="$5000" fieldsubTitle="Total Amount" fieldicon="ft-phone"></app-total-header> -->
+
+
+<!-- 
+<app-input-image [(files)]="myfile" ></app-input-image>
+<button (click)="Onupoad()">Upload</button> -->
+
+
+
+
+
+<!-- testing Modal of ngx bootstrap -->
+
+
+
+<!-- <div class="container">
+  <div class="bg bg-light">
+    <label for=""> Testing Modal of ngx bootstrap</label>
+  </div>
+</div> -->
+
+
+<!-- <div class="col-xl-3 col-lg-6 col-md-4">
+  <div class="card" style="height: 102.625px;">
+      <div class="card-content">
+          <div class="px-3 py-3">
+              <div class="media"><div class="media-body text-left">
+                  <h3 class="mb-1 success">156</h3>
+                  <span>Open Lead</span>
+                  </div>
+                  <div class="media-right align-self-center">
+                      <i class="icon-user success font-large-2 float-right"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<!-- <div class="container bg-light">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input [(ngModel)]="lead.fname"  name="a" type="email" class="form-control" #email aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input [(ngModel)]="lead.fname" name="b" type="password" class="form-control" #pass placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary red" (click)="onSubmit(email,pass)">Submit</button>
+  </form>
+
+</div> -->
+<!-- <div class="row pl-1">
+  <div class="col-12 col-sm-12 p-0">
+    <div class="card my-0 shadow-z-1 h-100">
+      <div class="card-header bg-light pt-1">
+        <div class="form-row">
+          <div class="col-12 col-sm-6  text-left">
+            <h3 class="content-header mt-1"> Opportunity Line Items </h3>
+            <p class="content-sub-header"></p>
+          </div>
+          <div class="col-12 col-sm-6 text-right pt-1">
+            <div class="btn-group btn-group-justified">
+              <button class="btn btn-primary btn-raised btn-sm btn-sm px-3"
+                [disabled]='!exampleCheck1 && !exampleCheck2 && !exampleCheck3 && !exampleCheck4'
+                (click)="onOrder()">Order</button>
+              <button class="btn btn-danger btn-raised btn-sm btn-sm px-3 ml-1"
+                (click)="modalRef.hide()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 p-0 bg-primary">
+    <div class="card my-0 shadow-z-1 h-100">
+      <label for="">You is importance
+        btn btn-primary btn-raised btn-sm btn-sm px-3
+      </label>
+    </div>
+  </div>
+</div> -->
+<!--  -->
+<ngx-dropzone  class="picture-container" [(multiple)]="multipleUpload"
+  (change)="onSelect($event)">
+  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let img of files" [file]="img"
+    [removable]="true" (removed)="onRemove($event)">
+  </ngx-dropzone-image-preview>
+</ngx-dropzone>
+<button (click)="onClick()">
+  Image
+</button>
+
+
+<!--  -->

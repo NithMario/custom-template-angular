@@ -1,0 +1,41 @@
+{
+  "open": [
+      {
+          "no":"01",
+          "company":"Redfox",
+          "industry":"Technology",
+          "contact":"admin",
+          "phone":"01298090",
+          "mobile":"01270990",
+          "requirement":"Create project",
+          "status":"Open",
+          "date":"27/Dec/2019"
+      },
+      {
+        "no":"02",
+        "company":"Redfox",
+        "industry":"Technology",
+        "contact":"admin",
+        "phone":"01298090",
+        "mobile":"01270990",
+        "requirement":"Create project",
+        "status":"open",
+        "date":"27/Dec/2019"
+    }  
+  ],
+
+  "converted": [
+    {
+        "no":"03",
+        "company":"Redfox",
+        "industry":"Technology",
+        "contact":"admin",
+        "phone":"01298090",
+        "mobile":"01270990",
+        "requirement":"Create project",
+        "status":"Converted",
+        "date":"27/Dec/2019"
+    }
+   
+]
+}
